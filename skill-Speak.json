@@ -1,0 +1,234 @@
+{
+  "intents": [
+    {
+      "intent": "Cafes",
+      "examples": [
+        {
+          "text": "2"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Hotels",
+      "examples": [
+        {
+          "text": "3"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Restaurants",
+      "examples": [
+        {
+          "text": "1"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "services",
+      "examples": [
+        {
+          "text": "your services"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "welcome",
+      "examples": [
+        {
+          "text": "Asalamu Aliakum"
+        },
+        {
+          "text": "hello"
+        },
+        {
+          "text": "hi"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_7_1625681022183",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi, how can I help you ?\nTo view services send your services "
+              },
+              {
+                "text": "Hello, dear customer , how can I help you ?\nTo view services send your services "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#welcome",
+      "dialog_node": "node_10_1625678097110",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "1-Origin \n2- Silvano Cafe \n3-Retro7 \n4- Tiny House \n5- La luna Cafe"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Cafes",
+      "dialog_node": "node_3_1625680995085",
+      "previous_sibling": "node_7_1625680904491"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "We offer you the best places in the region, send the service number you want\n1- Restaurants            \n 2- Cafes \n3- Hotels"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#services",
+      "dialog_node": "node_6_1625679277031",
+      "previous_sibling": "node_10_1625678097110"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "1- BYBLOS\n2- surround\n3- Baba khan \n4-Ronin Lounge\n5- La Notte"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Restaurants",
+      "dialog_node": "node_7_1625680904491",
+      "previous_sibling": "node_6_1625679277031"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "1- The Ritz-Carlton\n2-The Hotel Galleria \n3- Assila\n4-Rosewood\n5- Park Hyat"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Hotels",
+      "dialog_node": "node_7_1625681022183",
+      "previous_sibling": "node_3_1625680995085"
+    },
+    {
+      "type": "standard",
+      "title": "Hello ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Speak",
+  "language": "en",
+  "description": ""
+}
